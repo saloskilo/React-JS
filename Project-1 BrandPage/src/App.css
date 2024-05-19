@@ -1,0 +1,76 @@
+:root{
+  --red:red;
+  --gray:gray;
+}
+*{
+  margin: auto;
+}
+nav{
+  display: flex;
+  justify-content: space-between;
+  height: 72px;
+  align-items: center;
+}
+nav ul{
+  display: flex;
+ 
+  list-style: none;
+  gap: 24px;
+ 
+}
+button{
+  all: unset;
+  padding: 6px 16px;
+  background:var(--red);
+  height: 32px;
+  color: wheat;
+  font-weight: 500;
+}
+
+ .hero{
+  display: flex;
+  align-items: center;
+  height: calc(100vh-72px);
+
+}
+.hero h1{
+ font-weight: 800;
+ line-height: 102px;
+ font-size: 108px;
+}
+.hero p{
+  font-weight: 600;
+  color: rgb(184, 119, 119);
+ }
+ .hero-button{
+  display: flex;
+  gap: 40px;
+ }
+ .secondary_btn{
+  background: transparent;
+  color: var(--gray);
+  border: 1px solid gray;
+ }
+.container{
+  margin: 0 auto;
+  max-width: 1280px;
+ 
+}
+.brand_logo{
+  display: flex;
+  gap: 36px;
+}
+.hero-content{
+  display: flex;
+  flex-direction: column;
+  
+  gap: 36px;
+} 
+.shopping p{
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+.brand_icons{
+  display: flex;
+  gap: 16px;
+}
