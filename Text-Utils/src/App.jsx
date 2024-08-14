@@ -6,8 +6,8 @@ import Textarea from "./Components/Textarea";
 function App() {
   return (
     <>
-      <Navbar title={'SaloSkilo'} />
-      <Textarea heading={'Text-Area'}/>
+      {/* <Navbar title={'SaloSkilo'} />
+      <Textarea heading={'Text-Area'}/> */}
       <About/>
      
     </>
