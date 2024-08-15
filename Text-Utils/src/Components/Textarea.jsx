@@ -42,6 +42,12 @@ const Textarea = (props) => {
         setText(newText);
        
      };
+     let copyText = () => {
+        let text=document.getElementById("myBox");
+        text.select();
+         navigator.clipboard.writeText(text.value);
+       
+     };
 
 
     return (
@@ -52,7 +58,7 @@ const Textarea = (props) => {
                     value={text}
                     onChange={handleChange}
                     className="form-control"
-                    id=""
+                    id="myBox"
                     rows="4"
                     placeholder="Type Something Here!"
                 ></textarea>
@@ -72,6 +78,8 @@ const Textarea = (props) => {
                 <button onClick={replaceText} className="btn btn-primary">Replace Text</button>
 
                 <button onClick={encodeToBase64} className="btn btn-primary">Encode Base64</button>
+
+                <button onClick={copyText} className="btn btn-primary">Copy Text</button>
 
             </div>
 
