@@ -48,6 +48,10 @@ const Textarea = (props) => {
          navigator.clipboard.writeText(text.value);
        
      };
+     let removeExtraSpaces=()=> {
+        let newText=text.trim().replace(/\s+/g, ' ')
+        setText(newText);
+      }
 
 
     return (
@@ -80,6 +84,7 @@ const Textarea = (props) => {
                 <button onClick={encodeToBase64} className="btn btn-primary">Encode Base64</button>
 
                 <button onClick={copyText} className="btn btn-primary">Copy Text</button>
+                <button onClick={removeExtraSpaces} className="btn btn-primary">Remove E-Spaces</button>
 
             </div>
 
