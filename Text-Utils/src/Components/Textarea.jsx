@@ -18,6 +18,13 @@ const Textarea = (props) => {
         let newText = text.toLocaleLowerCase();
         setText(newText);
     };
+    let toSpecialCase = () => {
+        let newText = text.split(' ').map((element) => {
+          return element.charAt(0).toUpperCase() + element.slice(1).toLowerCase();
+        }).join(' ');
+      
+        setText(newText);
+      }
     let clear = () => {
         let newText = "";
         setText(newText);
@@ -51,8 +58,7 @@ const Textarea = (props) => {
      let removeExtraSpaces=()=> {
         let newText=text.trim().replace(/\s+/g, ' ')
         setText(newText);
-      }
-
+      } 
 
     return (
         <>
@@ -73,6 +79,9 @@ const Textarea = (props) => {
 
                 <button onClick={toLowerCase} className="btn btn-primary "  >ToLowerCase</button>
 
+                <button onClick={toSpecialCase} className="btn btn-primary">toSpecialCase</button>
+
+
                 <button onClick={clear} className="btn btn-primary ">Clear</button>
 
                 <button onClick={speak} className="btn btn-primary ">Speak</button>
@@ -84,6 +93,7 @@ const Textarea = (props) => {
                 <button onClick={encodeToBase64} className="btn btn-primary">Encode Base64</button>
 
                 <button onClick={copyText} className="btn btn-primary">Copy Text</button>
+
                 <button onClick={removeExtraSpaces} className="btn btn-primary">Remove E-Spaces</button>
 
             </div>
