@@ -100,8 +100,8 @@ const Textarea = (props) => {
 
             <div className="container mt-3 ">
                 <h2>Your Text Summary</h2>
-                <p><strong>{text.split(' ').length - 1}</strong> words and <strong>{text.length}</strong> Characters</p>
-                <p><strong>{0.008 * text.split(' ').length}</strong> Minutes to Read</p>
+                <p><strong>{text.split(' ').filter((element)=>{return element.length!=0}).length}</strong> words and <strong>{text.length}</strong> Characters</p>
+                <p><strong>{0.008 * text.split(' ').filter((element)=>{return element.length!=0}).length}</strong> Minutes to Read</p>
                 <h3>Preview</h3>
                 <p>{text}</p>
             </div>
