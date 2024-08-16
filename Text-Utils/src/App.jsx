@@ -1,5 +1,6 @@
 import "./App.css";
 import About from "./Components/About";
+import Footer from "./Components/Footer";
 import Navbar from "./Components/Navbar";
 import Textarea from "./Components/Textarea";
 import React, { useState } from 'react'
@@ -29,20 +30,20 @@ function App() {
     }
   }
 
-  let toggleRedMode = () => {
-    if (mode === 'light' || mode === 'dark') {
-      // setmode('red');
-      document.body.style.backgroundColor = "red";
-    } else {
-      setmode('light');
-      document.body.style.backgroundColor = "white";
+  // let toggleRedMode = () => {
+  //   if (mode === 'light' || mode === 'dark') {
+  //     // setmode('red');
+  //     document.body.style.backgroundColor = "red";
+  //   } else {
+  //     setmode('light');
+  //     document.body.style.backgroundColor = "white";
 
-    }
-  }
+  //   }
+  // }
   return (
     <>
       <Router>
-        <Navbar title={'SaloSkilo'} mode={mode} toggleMode={toggleMode} toggleRedMode={toggleRedMode} modeBtn={modeBtn} />
+        <Navbar title={'SaloSkilo'} mode={mode} toggleMode={toggleMode} /* toggleRedMode={toggleRedMode} */ modeBtn={modeBtn} />
         
 
           <Switch>
@@ -54,7 +55,7 @@ function App() {
             </Route>
           </Switch>
 
-          
+          <Footer toggleMode={toggleMode}/>
 
        
       </Router>

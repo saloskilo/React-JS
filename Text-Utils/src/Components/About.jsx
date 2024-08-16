@@ -4,27 +4,27 @@ const About = () => {
     const [btnText, setBtnText] = useState("Enable Dark Mode");
 
     const [myStyle, setmyStyle] = useState({
-        color:"black",
-        backgroundColor:"white"
+        color: "black",
+        backgroundColor: "white"
     });
-    const changeMode=()=>{
-if (myStyle.color=="black") {
-    setmyStyle({
-        color:"white",
-        backgroundColor:"black"
-    })
-    setBtnText("Enable Light Mode")
-}else{
-    setmyStyle({
-        color:"black",
-        backgroundColor:"white"
-    })
-setBtnText("Enable Dark Mode")
+    const changeMode = () => {
+        if (myStyle.color == "black") {
+            setmyStyle({
+                color: "white",
+                backgroundColor: "black"
+            })
+            setBtnText("Enable Light Mode")
+        } else {
+            setmyStyle({
+                color: "black",
+                backgroundColor: "white"
+            })
+            setBtnText("Enable Dark Mode")
 
-}
+        }
 
     }
-return (
+    return (
         <div className="container mt-3">
             <h1>About Us</h1>
             <div className="accordion accordion-flush" id="accordionFlushExample">
@@ -60,7 +60,7 @@ return (
                 </div>
             </div>
             <div className="container mt-3">
-            <button onClick={changeMode} className="btn btn-primary">{btnText}</button>
+                <button onClick={changeMode} className="btn btn-primary">{btnText}</button>
 
             </div>
         </div>

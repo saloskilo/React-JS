@@ -1,6 +1,9 @@
 button{
-    width: 150px;
+    width: 200px;
 }
 #btnContainer{
     gap: 25px;
+}
+#navBar{
+    border-radius: 10px;
 }
