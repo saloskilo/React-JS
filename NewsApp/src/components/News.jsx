@@ -4,7 +4,7 @@ import NewsItem from "./NewsItem";
 // export class News extends Component {
 //   articles = [
 
-    
+
 //   ];
 //   constructor() {
 //     super();
@@ -83,6 +83,7 @@ class News extends Component {
     this.state = {
       articles: [], // Initially empty array for articles
       loading: true, // Loading state to indicate data is being fetched
+      page:1
     };
   }
 
@@ -98,6 +99,24 @@ class News extends Component {
       this.setState({ loading: false });
     }
   }
+
+
+  btnPrev = async () => {
+    let response = await fetch(`https://newsapi.org/v2/everything?q=apple&from=2024-08-17&to=2024-08-17&sortBy=popularity&apiKey=61116340b4b54c769d6d62c1c3f928ee&page=${this.state.page - 1}`);
+    let fetchData = await response.json();
+    this.setState({
+      page: this.state.page - 1,
+      articles: fetchData.articles
+    })
+  };
+  btnNext = async () => {
+    let response = await fetch(`https://newsapi.org/v2/everything?q=apple&from=2024-08-17&to=2024-08-17&sortBy=popularity&apiKey=61116340b4b54c769d6d62c1c3f928ee&page=${this.state.page + 1}`);
+    let fetchData = await response.json();
+    this.setState({
+      page: this.state.page + 1,
+      articles: fetchData.articles
+    })
+  };
   render() {
     return (
       <div className='container my-3'>
@@ -110,7 +129,7 @@ class News extends Component {
             {this.state.articles.map((element) => (
               <div className="col md-4 my-3" key={element.url}>
                 <NewsItem
-                // ternary operator 
+                  // ternary operator 
                   title={element.title ? element.title.slice(0, 20) : ""}
                   description={element.description ? element.description.slice(0, 50) : ""}
                   imageUrl={element.urlToImage}
@@ -118,6 +137,11 @@ class News extends Component {
                 />
               </div>
             ))}
+            <div className="container d-flex justify-content-between">
+              <button disabled={this.state.page <= 1} type="button" onClick={this.btnPrev} className="btn btn-dark">&larr; Previous</button>
+              <button type="button" onClick={this.btnNext} className="btn btn-dark">&rarr; Next</button>
+
+            </div>
           </div>
         )}
       </div>
