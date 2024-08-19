@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default class Navbar extends Component {
   render() {
     return (
       <div className="container mt-2">
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
-          <div className="container-fluid">
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+          <div className="container-fluid d-flex justify-content-between">
             <Link className="navbar-brand" to="/">
               SaloSkilo
             </Link>
@@ -26,12 +26,8 @@ export default class Navbar extends Component {
               id="navbarSupportedContent"
             >
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                <li className="nav-item">
-                  <Link className="nav-link active" aria-current="page" to="/">
-                    Home
-                  </Link>
-                </li>
                
+
                 <li className="nav-item">
                   <Link className="nav-link" to="/">  Business</Link></li>
                 <li className="nav-item">
@@ -49,7 +45,10 @@ export default class Navbar extends Component {
               </ul>
             </div>
 
-
+            <form className="form-inline my-2 my-lg-0 d-flex">
+              <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
+              <button className="btn btn-sm  btn-outline-success my-2 my-sm-0 mx-2" type="submit">Search</button>
+            </form>
 
           </div>
         </nav>
