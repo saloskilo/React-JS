@@ -102,7 +102,10 @@ class News extends Component {
 
   async componentDidMount() {
     try {
-      let response = await fetch(`https://newsapi.org/v2/top-headlines?country=${this.props.country}&apiKey=61116340b4b54c769d6d62c1c3f928ee&category=${this.props.category}&pageSize=${9}`);
+      // let response = await fetch(`https://newsapi.org/v2/top-headlines?country=${this.props.country}&apiKey=61116340b4b54c769d6d62c1c3f928ee&category=${this.props.category}&pageSize=${9}`);
+
+      let response = await fetch(`https://newsapi.org/v2/top-headlines?country=${this.props.country}&apiKey=61116340b4b54c769d6d62c1c3f928ee`);
+
 
       let fetchData = await response.json();
 
@@ -144,8 +147,8 @@ class News extends Component {
               <div className="col md-4 my-3" key={element.url}>
                 <NewsItem
                   // ternary operator 
-                  title={element.title ? element.title.slice(0, 20) : ""}
-                  description={element.description ? element.description.slice(0, 50) : ""}
+                  title={element.title ? element.title.slice(0, 20) : "Title is Null"}
+                  description={element.description ? element.description.slice(0, 50) : "Description is Null in the API"}
                   imageUrl={element.urlToImage}
                   newsUrl={element.url}
                 />
