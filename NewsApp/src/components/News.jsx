@@ -1403,7 +1403,7 @@ class News extends Component {
                   imageUrl={element.urlToImage}
                   newsUrl={element.url}
                   author={element.author}
-                  publishedData={element.publishedData}
+                  publishedData={new Date(element.publishedAt).toDateString()}
                 />
               </div>
             ))}
