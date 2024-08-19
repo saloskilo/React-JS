@@ -151,6 +151,8 @@ class News extends Component {
                   description={element.description ? element.description.slice(0, 50) : "Description is Null in the API"}
                   imageUrl={element.urlToImage}
                   newsUrl={element.url}
+                  author={element.author}
+                  publishedData={element.publishedData}
                 />
               </div>
             ))}
