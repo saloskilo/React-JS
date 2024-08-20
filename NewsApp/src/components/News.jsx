@@ -1351,40 +1351,40 @@ class News extends Component {
     };
   }
 
-  // async componentDidMount() {
-  //   try {
-  //     // let response = await fetch(`https://newsapi.org/v2/top-headlines?country=${this.props.country}&apiKey=61116340b4b54c769d6d62c1c3f928ee&category=${this.props.category}&pageSize=${9}`);
+  async componentDidMount() {
+    try {
+      // let response = await fetch(`https://newsapi.org/v2/top-headlines?country=${this.props.country}&apiKey=61116340b4b54c769d6d62c1c3f928ee&category=${this.props.category}&pageSize=${9}`);
 
-  //     let response = await fetch(`https://newsapi.org/v2/top-headlines?country=${this.props.country}&apiKey=61116340b4b54c769d6d62c1c3f928ee`);
-
-
-  //     let fetchData = await response.json();
-
-  //     // Update the state with the fetched data
-  //     this.setState({ articles: fetchData.articles, loading: false });
-  //   } catch (error) {
-  //     console.error("Error fetching data:", error);
-  //     this.setState({ loading: false });
-  //   }
-  // }
+      let response = await fetch(`https://newsapi.org/v2/top-headlines?country=${this.props.country}&apiKey=61116340b4b54c769d6d62c1c3f928ee`);
 
 
-  // btnPrev = async () => {
-  //   let response = await fetch(`https://newsapi.org/v2/top-headlines?country=${this.props.country}&apiKey=61116340b4b54c769d6d62c1c3f928ee&category=${this.props.category}&page=${this.state.page - 1}&pageSize=${9}`);
-  //   let fetchData = await response.json();
-  //   this.setState({
-  //     page: this.state.page - 1,
-  //     articles: fetchData.articles
-  //   })
-  // };
-  // btnNext = async () => {
-  //   let response = await fetch(`https://newsapi.org/v2/top-headlines?country=${this.props.country}&apiKey=61116340b4b54c769d6d62c1c3f928ee&category=${this.props.category}&page=${this.state.page + 1}&pageSize=${9}`);
-  //   let fetchData = await response.json();
-  //   this.setState({
-  //     page: this.state.page + 1,
-  //     articles: fetchData.articles
-  //   })
-  // };
+      let fetchData = await response.json();
+
+      // Update the state with the fetched data
+      this.setState({ articles: fetchData.articles, loading: false });
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      this.setState({ loading: false });
+    }
+  }
+
+
+  btnPrev = async () => {
+    let response = await fetch(`https://newsapi.org/v2/top-headlines?country=${this.props.country}&apiKey=61116340b4b54c769d6d62c1c3f928ee&category=${this.props.category}&page=${this.state.page - 1}&pageSize=${9}`);
+    let fetchData = await response.json();
+    this.setState({
+      page: this.state.page - 1,
+      articles: fetchData.articles
+    })
+  };
+  btnNext = async () => {
+    let response = await fetch(`https://newsapi.org/v2/top-headlines?country=${this.props.country}&apiKey=61116340b4b54c769d6d62c1c3f928ee&category=${this.props.category}&page=${this.state.page + 1}&pageSize=${9}`);
+    let fetchData = await response.json();
+    this.setState({
+      page: this.state.page + 1,
+      articles: fetchData.articles
+    })
+  };
   render() {
     return (
       <div className='container my-3'>
