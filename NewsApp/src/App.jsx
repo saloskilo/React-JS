@@ -10,8 +10,8 @@ import {
   Route
 } from "react-router-dom";
 
-export default class App extends Component {
-  render() {
+const App =()=>{
+
     return (
       <div>
     
@@ -32,8 +32,9 @@ export default class App extends Component {
 
       </div>
     )
-  }
+  
 }
 
 
 
+export default App
