@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 mongoose.set('strictQuery', false);
-const mongoURL = "mongodb://localhost:27017/";
+const mongoURL = "mongodb://localhost:27017/salo-notebook";
 
 const connectToMongo = async () => {
     mongoose.connect(mongoURL, () => {
