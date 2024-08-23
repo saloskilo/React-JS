@@ -9,8 +9,10 @@
   "author": "salo",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.1.1",
     "express": "^4.19.2",
     "express-validator": "^7.2.0",
+    "jsonwebtoken": "^9.0.2",
     "moongose": "^1.0.0"
   },
   "devDependencies": {
