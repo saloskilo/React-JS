@@ -48,7 +48,43 @@ Router.post('/createuser', [
     res.json({ user })
   } catch (error) {
     console.error(error.message);
-    res.status(500).send("Something went wrong")
+    res.status(500).send("Interval server error")
   }
 });
+
+// authenticate a user using post method "/api/auth/login". No login required
+Router.post('/login', [
+  body('email', "Type Valid Email").isEmail(),
+  body('password', "Password cannot be blank").exists()
+
+], async (req, res) => {
+  // if there are error, send bad request and errors 
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
+
+  const { email, password } = req.body;
+  try {
+    let user = await User.findOne({ email });
+    if (!user) {
+      return res.status(400).json({ error: "Try to login with correct credentials" })
+    }
+    const passwordcompare = await bcrypt.compare(password, user.password);
+    if (!passwordcompare) {
+      return res.status(400).json({ error: "Try to login with correct credentials" })
+
+    }
+    const data = {
+      user: { id: user.id }
+    }
+    const authToken = jwt.sign(data, JWT_SECRET);
+    // console.log(authToken);
+    res.json({ authToken })
+
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send("Interval server error")
+  }
+})
 module.exports = Router;
