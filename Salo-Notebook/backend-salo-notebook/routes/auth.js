@@ -6,7 +6,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const JWT_SECRET = 'salmanalisaloskil0';
 
-// create user using post method "/api/auth/createuser". No login required
+// Route 1: create user using post method "/api/auth/createuser". No login required
 Router.post('/createuser', [
   body('name', "Enter Valid Name").isLength({ min: 3 }),
   body('email', "Type Valid Email").isEmail(),
@@ -52,7 +52,7 @@ Router.post('/createuser', [
   }
 });
 
-// authenticate a user using post method "/api/auth/login". No login required
+// Route: 2 authenticate a user using post method "/api/auth/login". No login required
 Router.post('/login', [
   body('email', "Type Valid Email").isEmail(),
   body('password', "Password cannot be blank").exists()
@@ -82,6 +82,18 @@ Router.post('/login', [
     // console.log(authToken);
     res.json({ authToken })
 
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send("Interval server error")
+  }
+});
+
+
+// Route:3 Get loggedin  user details using post method "/api/auth/getuser". login required
+Router.post('/getuser', async (req, res) => {
+  try {
+    let userId="todo";
+    const user=await User.findById(userId).select("-password")
   } catch (error) {
     console.error(error.message);
     res.status(500).send("Interval server error")
