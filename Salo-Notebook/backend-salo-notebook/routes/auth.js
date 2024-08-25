@@ -4,6 +4,7 @@ const User = require('../models/Users');
 const { body, validationResult } = require('express-validator');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const fetchuser = require('../middleware/fetchuser.js');
 const JWT_SECRET = 'salmanalisaloskil0';
 
 // Route 1: create user using post method "/api/auth/createuser". No login required
@@ -90,10 +91,11 @@ Router.post('/login', [
 
 
 // Route:3 Get loggedin  user details using post method "/api/auth/getuser". login required
-Router.post('/getuser', async (req, res) => {
+Router.post('/getuser', fetchuser, async (req, res) => {
   try {
-    let userId="todo";
-    const user=await User.findById(userId).select("-password")
+    let userId = req.user.id;
+    const user = await User.findById(userId).select("-password");
+    res.send(user);
   } catch (error) {
     console.error(error.message);
     res.status(500).send("Interval server error")
