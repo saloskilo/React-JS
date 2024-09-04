@@ -129,8 +129,8 @@ const NoteState = (props) => {
   const editNote = async (id,title,description,tag) => {
 
     // API Call 
-    const response=await fetch(`${host}/api/notes//updatenote/${id}`,{
-      method:'POST',
+    const response=await fetch(`${host}/api/notes/updatenote/${id}`,{
+      method:'PUT',
       headers:{
         'Content-type':'application/json',
         'auth-token':'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjZjN2ViMTExMDQwMGQ3YzUxZDUxMDM5In0sImlhdCI6MTcyNDU1MzQwOX0.wXvE1iSWjiR4yLIA6zAdJyhegxIRueJAnv3LkzxdCcc'
