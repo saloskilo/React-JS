@@ -4,6 +4,7 @@ import noteContext from './NoteContext'
 
 const NoteState = (props) => {
 
+  const host='http://localhost:5173'
   // const s1 = {
   //     "name": "salman",
   // }
@@ -91,7 +92,18 @@ const NoteState = (props) => {
     }
   ]
   // Add Notes 
-  const addNote = (title, description, tag) => {
+  const addNote =async (title, description, tag) => {
+     // API Call 
+     const response=await fetch(`${host}/api/notes/addnote`,{
+      method:'POST',
+      headers:{
+        'Content-type':'application/json',
+        'auth-token':'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjZjN2ViMTExMDQwMGQ3YzUxZDUxMDM5In0sImlhdCI6MTcyNDU1MzQwOX0.wXvE1iSWjiR4yLIA6zAdJyhegxIRueJAnv3LkzxdCcc'
+      },
+      body:JSON.stringify({title,description,tag})
+    });
+    // const json=response.json()
+
     const note = {
       "_id": "66cfda42cdda9dss93bf2dad711",
       "user": "66c7eb1110400d7c51d51039",
@@ -114,7 +126,30 @@ const NoteState = (props) => {
 
 
   // Edit Notes 
-  const editNote = () => { }
+  const editNote = async (id,title,description,tag) => {
+
+    // API Call 
+    const response=await fetch(`${host}/api/notes//updatenote/${id}`,{
+      method:'POST',
+      headers:{
+        'Content-type':'application/json',
+        'auth-token':'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjZjN2ViMTExMDQwMGQ3YzUxZDUxMDM5In0sImlhdCI6MTcyNDU1MzQwOX0.wXvE1iSWjiR4yLIA6zAdJyhegxIRueJAnv3LkzxdCcc'
+      },
+      body:JSON.stringify({title,description,tag})
+    });
+    const json=response.json()
+
+    // Login to Edit in notes 
+    for (let index = 0; index < notes.length; index++) {
+      const element = notes[index];
+      if (element._id===id) {
+        element.title=title;
+        element.description=description;
+        element.tag=tag;
+
+      }
+    }
+   }
 
 
 
