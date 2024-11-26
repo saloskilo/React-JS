@@ -2,9 +2,10 @@ import UseStateHook from './Hooks/UseStateHook'
 import './App.css'
 import UseEffectHook from './Hooks/UseEffectHook'
 import UseRefHook from './Hooks/UseRefHook'
+import ChildA from './PropDrilling/chilldA'
 
 function App() {
-
+let newName="Salman Ali";
   return (
     <>
     <h1>UseState Hook</h1>
@@ -15,6 +16,9 @@ function App() {
     <hr></hr>
     <h1>UseRef Hook</h1>
     <UseRefHook/>
+    <hr></hr>
+    <h1>Props Drilling</h1>
+    <ChildA name={newName}/>
 </>
   )
 }
