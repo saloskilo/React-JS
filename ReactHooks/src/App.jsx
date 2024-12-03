@@ -3,7 +3,8 @@ import './App.css'
 import UseEffectHook from './Hooks/UseEffectHook'
 import UseRefHook from './Hooks/UseRefHook'
 import ChildA from './PropDrilling/chilldA'
-import ContextAPI from './ContextAPI/ContextAPI'
+import ContextAPI from './ContextAPI/ContextAPI';
+import ContextHook from './Hooks/UseConTextHook/ContextHook'
 
 function App() {
 let newName="Salman Ali";
@@ -24,6 +25,9 @@ let newName="Salman Ali";
     <hr></hr>
     <h1>Context API</h1>
     <ContextAPI/>
+    <hr></hr>
+    <h1>UseContext Hook</h1>
+    <ContextHook/>
 </>
   )
 }
