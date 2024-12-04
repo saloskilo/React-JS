@@ -5,6 +5,7 @@ import UseRefHook from './Hooks/UseRefHook'
 import ChildA from './PropDrilling/chilldA'
 import ContextAPI from './ContextAPI/ContextAPI';
 import ContextHook from './Hooks/UseConTextHook/ContextHook'
+import UseMemoHook from './Hooks/UseMemoHook'
 
 function App() {
 let newName="Salman Ali";
@@ -28,6 +29,10 @@ let newName="Salman Ali";
     <hr></hr>
     <h1>UseContext Hook</h1>
     <ContextHook/>
+
+    <hr></hr>
+    <h1>UseMemo Hook</h1>
+    <UseMemoHook/>
 </>
   )
 }
