@@ -3,14 +3,16 @@ import axios from "axios";
 import "./App.css";
 import AxiosPost from "./AxiosPost";
 import AxiosGet from "./AxiosGet";
-
+import AxiosPut from "./AxiosPut";
+import AxiosDelete from "./AxiosDelete";
 
 function App() {
-
   return (
     <>
       {/* <AxiosGet/> */}
-      <AxiosPost/>
+      {/* <AxiosPost/> */}
+      {/* <AxiosPut /> */}
+      <AxiosDelete/>
     </>
   );
 }
